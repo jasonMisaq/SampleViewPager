@@ -7,8 +7,10 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.animation.AlphaAnimation;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private static final int NUM_PAGES = 15;
 
@@ -16,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private PagerAdapter mAdapter; //adapter
+
+    PagerTransformer mTransformer; //for animation
 
 
 
@@ -27,7 +31,11 @@ public class MainActivity extends AppCompatActivity {
         mPager = findViewById(R.id.pager);
         mAdapter = new SlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mAdapter);
+        mTransformer = new PagerTransformer();
+        mPager.setPageTransformer(true, mTransformer);
     }
+
+
     private class SlidePagerAdapter extends FragmentStatePagerAdapter {
 
         public SlidePagerAdapter(FragmentManager fm) {
