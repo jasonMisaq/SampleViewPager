@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SampleViewPager</string>
+    <string name="image">Image</string>
+</resources>
